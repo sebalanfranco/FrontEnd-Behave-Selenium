@@ -16,6 +16,13 @@ Feature: cart
         Then I should see that the purchase is confirmed
 
     @sanity
+    Scenario: review order
+        Given I added a product to the cart
+        When I open the cart
+        And I place the order
+        Then I should see that the order is ready
+
+    @sanity
     Scenario: review products
         Given I added a product to the cart
         When I open the cart

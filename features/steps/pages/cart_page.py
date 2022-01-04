@@ -4,6 +4,7 @@ class CartPage(BasePage):
     # Locators
     products_container = (By.ID, 'tbodyid')
     product_row = (By.CSS_SELECTOR, 'tr[class="success"]')
+    products_total = (By.ID, 'totalp')
     order_modal = (By.ID, 'orderModal')
     order_name_input = (By.ID, 'name')
     order_country_input = (By.ID, 'country')
@@ -11,6 +12,7 @@ class CartPage(BasePage):
     order_card_input = (By.ID, 'card')
     order_month_input = (By.ID, 'month')
     order_year_input = (By.ID, 'year')
+    order_total = (By.ID, 'totalm')
     purchase_confirmation_message = (By.CSS_SELECTOR, '.sweet-alert h2')
     # This can be improved
     delete_product_link = (By.XPATH, '//a[text()="Delete"]')
@@ -25,6 +27,9 @@ class CartPage(BasePage):
 
     def get_products_quantity(self):
         return len(self.find_child_elements(self.products_container, self.product_row))
+
+    def get_products_total(self):
+        return self.find_element(self.products_total).text
 
     def get_product_by_position(self, position: int):
         return self.find_child_elements(self.products_container, self.product_row)[position - 1]
@@ -43,3 +48,6 @@ class CartPage(BasePage):
         self.find_child_element(self.order_modal, self.order_month_input).send_keys(billing_information['month'])
         self.find_child_element(self.order_modal, self.order_year_input).send_keys(billing_information['year'])
         self.find_element(self.purchase_order_button).click()
+
+    def get_order_total(self):
+        return self.find_element(self.order_total).text

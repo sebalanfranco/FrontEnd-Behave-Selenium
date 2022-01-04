@@ -10,6 +10,7 @@ def step_impl(context):
 
 @when('I place the order')
 def step_impl(context):
+    context.dataset['products_total'] = context.cart_page.get_products_total()
     context.cart_page.place_order()
 
 @when('I purchase the order')
@@ -49,3 +50,9 @@ def step_impl(context):
     
     assert expected_text == text, (f'Expected %s to equal %s' % (text, expected_text))
 
+@then('I should see that the order is ready')
+def step_impl(context):
+    text = context.cart_page.get_order_total()
+    expected_text = context.dataset['products_total']
+    
+    assert expected_text == text, (f'Expected %s to equal %s' % (text, expected_text))
