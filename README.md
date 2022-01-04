@@ -16,3 +16,4 @@ The project is based on [Python](https://www.python.org/), [Behave](https://beha
 ## Table of contents
 - [Pre-requisites and setup](docs/Setup.md)
 - [Tests execution](docs/TestsExecution.md)
+- [QA concepts](docs/QA.md)
