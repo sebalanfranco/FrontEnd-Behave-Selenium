@@ -1,4 +1,13 @@
-from behave import when
+from behave import given, when, then
+
+#GIVEN steps
+@given('I am logged in')
+def step_impl(context):
+    context.execute_steps('''
+        When I open the login modal
+        And I provide my credentials
+        Then I should be successfully logged in
+    ''')
 
 # WHEN steps
 @when('I provide my credentials')

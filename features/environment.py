@@ -1,10 +1,13 @@
 from behave import fixture, use_fixture
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
+# Pages
 from steps.pages.base_page import BasePage
 from steps.pages.login_page import LoginPage
 from steps.pages.wrapper_page import WrapperPage
 from steps.pages.signup_page import SignupPage
+from steps.pages.product_store_page import ProductStorePage
+# Utils
 from steps.utils.person import Person, RandomPerson
 from steps.utils.folder_manager import create_folder
 
@@ -28,6 +31,7 @@ def before_all(context):
     context.login_page = LoginPage(context.webdriver)
     context.wrapper_page = WrapperPage(context.webdriver)
     context.signup_page = SignupPage(context.webdriver)
+    context.product_store_page = ProductStorePage(context.webdriver)
     # Create report folder if doesn't exist
     create_folder(context.config.userdata['report_folder'])
 

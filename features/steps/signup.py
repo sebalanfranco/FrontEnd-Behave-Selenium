@@ -1,4 +1,4 @@
-from behave import when
+from behave import when, then
 
 # WHEN steps
 @when('I provide my account information')

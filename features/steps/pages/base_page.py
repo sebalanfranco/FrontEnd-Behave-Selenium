@@ -18,8 +18,14 @@ class BasePage:
     def find_element(self, locator):
         return self.browser.find_element(*locator)
 
+    def find_elements(self, locator):
+        return self.browser.find_elements(*locator)
+
     def find_child_element(self, parent_locator, child_locator):
         return self.browser.find_element(*parent_locator).find_element(*child_locator)
+
+    def find_child_elements(self, parent_locator, child_locator):
+        return self.browser.find_element(*parent_locator).find_elements(*child_locator)
 
     def get_alert_message(self):
         self.wait_for_alert()
