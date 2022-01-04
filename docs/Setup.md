@@ -41,9 +41,9 @@ source bin/activate
 ```
 cd <path-to>/demoblaze-frontend
 ```
-2. Use `pip` to install dependencies.
+2. Use `pip3` to install dependencies.
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Sources
