@@ -7,14 +7,12 @@ class WrapperPage(BasePage):
     user_welcome = (By.ID, 'nameofuser')
     # This can be improved
     cart = (By.XPATH, '//a[text()="Cart"]')
-    home = (By.XPATH, '//a[text()="Home "]')
 
     def click_menu_option(self, option: str):
         locator = {
             'login': self.login,
             'sign up': self.sign_up,
-            'cart': self.cart,
-            'home': self.home
+            'cart': self.cart
         }[option]
 
         self.find_element(locator).click()

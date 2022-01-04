@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.alert import Alert
-from selenium.common.exceptions import ElementNotVisibleException, StaleElementReferenceException
+from selenium.common.exceptions import ElementNotVisibleException
 
 class BasePage:
     """Base page object conains the logic to use Selenium webdriver and interact with web elements."""
@@ -11,7 +11,9 @@ class BasePage:
     By = By
 
     def __init__(self, webdriver):
+        # Set browser with webdriver instance
         self.browser = webdriver
+        # Incrementing implicit wait
         self.browser.implicitly_wait(10)
 
     def visit(self, url):
