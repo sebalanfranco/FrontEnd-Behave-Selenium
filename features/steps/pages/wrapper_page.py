@@ -1,16 +1,20 @@
-from steps.pages.base_page import BasePage
+from steps.pages.base_page import BasePage, By
 
 class WrapperPage(BasePage):
-    By = BasePage.By
     # Locators
     login = (By.ID, 'login2')
     sign_up = (By.ID, 'signin2')
     user_welcome = (By.ID, 'nameofuser')
-    
+    # This can be improved
+    cart = (By.XPATH, '//a[text()="Cart"]')
+    home = (By.XPATH, '//a[text()="Home "]')
+
     def click_menu_option(self, option: str):
         locator = {
             'login': self.login,
-            'sign up': self.sign_up
+            'sign up': self.sign_up,
+            'cart': self.cart,
+            'home': self.home
         }[option]
 
         self.find_element(locator).click()

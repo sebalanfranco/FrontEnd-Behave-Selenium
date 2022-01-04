@@ -7,6 +7,7 @@ from steps.pages.login_page import LoginPage
 from steps.pages.wrapper_page import WrapperPage
 from steps.pages.signup_page import SignupPage
 from steps.pages.product_store_page import ProductStorePage
+from steps.pages.cart_page import CartPage
 # Utils
 from steps.utils.person import Person, RandomPerson
 from steps.utils.folder_manager import create_folder
@@ -32,6 +33,7 @@ def before_all(context):
     context.wrapper_page = WrapperPage(context.webdriver)
     context.signup_page = SignupPage(context.webdriver)
     context.product_store_page = ProductStorePage(context.webdriver)
+    context.cart_page = CartPage(context.webdriver)
     # Create report folder if doesn't exist
     create_folder(context.config.userdata['report_folder'])
 

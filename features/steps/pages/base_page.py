@@ -3,8 +3,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.alert import Alert
+from selenium.common.exceptions import ElementNotVisibleException, StaleElementReferenceException
 
 class BasePage:
+    """Base page object conains the logic to use Selenium webdriver and interact with web elements."""
     Keys = Keys
     By = By
 
@@ -46,3 +48,8 @@ class BasePage:
         wait = WebDriverWait(self.browser, timeout)
         
         return wait.until(EC.alert_is_present())
+
+    def wait_for_element_to_disappear(self, element, timeout = 5):
+        wait = WebDriverWait(self.browser, timeout, ignored_exceptions = (ElementNotVisibleException))
+
+        return wait.until_not(lambda e: element.is_displayed())

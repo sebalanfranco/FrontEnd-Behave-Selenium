@@ -1,4 +1,13 @@
-from behave import when, then
+from behave import given, when, then
+
+# GIVEN steps
+@given('I added a product to the cart')
+def step_impl(context):
+    context.execute_steps('''
+        When I open the first product
+        And I add the product to the cart
+        Then I should see the "Product added." alert message
+    ''')
 
 # WHEN steps
 @when('I open the first product')
@@ -7,7 +16,6 @@ def step_impl(context):
     context.dataset['selected_product'] = context.product_store_page.get_product_information_by_position(1)
     context.product_store_page.open_product_by_position(1)
 
-# WHEN steps
 @when('I add the product to the cart')
 def step_impl(context):
     # This can be improved using a data driven approach

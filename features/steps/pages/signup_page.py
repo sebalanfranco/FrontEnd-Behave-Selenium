@@ -1,7 +1,6 @@
-from steps.pages.base_page import BasePage
+from steps.pages.base_page import BasePage, By
 
 class SignupPage(BasePage):
-    By = BasePage.By
     # Locators
     signup_modal = (By.ID, 'signInModal')
     username_input = (By.ID, 'sign-username')
