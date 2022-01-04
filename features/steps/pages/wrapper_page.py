@@ -4,11 +4,13 @@ class WrapperPage(BasePage):
     By = BasePage.By
     # Locators
     login = (By.ID, 'login2')
+    sign_up = (By.ID, 'signin2')
     user_welcome = (By.ID, 'nameofuser')
     
     def click_menu_option(self, option: str):
         locator = {
-            'login': self.login
+            'login': self.login,
+            'sign up': self.sign_up
         }[option]
 
         self.find_element(locator).click()

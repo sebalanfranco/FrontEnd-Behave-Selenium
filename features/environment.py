@@ -4,7 +4,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from steps.pages.base_page import BasePage
 from steps.pages.login_page import LoginPage
 from steps.pages.wrapper_page import WrapperPage
-from steps.utils.person import Person
+from steps.pages.signup_page import SignupPage
+from steps.utils.person import Person, RandomPerson
 from steps.utils.folder_manager import create_folder
 
 @fixture
@@ -26,13 +27,15 @@ def before_all(context):
     context.base_page = BasePage(context.webdriver)
     context.login_page = LoginPage(context.webdriver)
     context.wrapper_page = WrapperPage(context.webdriver)
+    context.signup_page = SignupPage(context.webdriver)
     # Create report folder if doesn't exist
     create_folder(context.config.userdata['report_folder'])
 
 def before_scenario(context, scenario):
     # Set up scenario data
     context.dataset = {
-        'user': Person()
+        'user': Person(),
+        'random_user': RandomPerson()
     }
 
 def after_scenario(context, scenario):
