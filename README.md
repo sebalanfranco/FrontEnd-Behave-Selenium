@@ -17,3 +17,11 @@ The project is based on [Python](https://www.python.org/), [Behave](https://beha
 - [Pre-requisites and setup](docs/Setup.md)
 - [Tests execution](docs/TestsExecution.md)
 - [QA concepts](docs/QA.md)
+
+## TODOs
+- Implement a data driven approach: it allows to keep dataset independent from scenarios.
+- Improve error handling, mainly on utils modules.
+- Support multi brower execution (currently only running in Chrome).
+- Improve locator by text (currently using XPath): it can be solved by implementing a method in base page class.
+- Improve reporting (maybe using Allure reports): currently using JUnit a reporter. Screenshots are taken, but not attached to report.
+- Improve code documentation: only base page class is documented to show the concept, but it should expanded to all classes and modules.
