@@ -7,7 +7,7 @@ The project is based on [Python](https://www.python.org/), [Behave](https://beha
 
 ## Some practices used
 
-**Page object patter**: in order to interact with the different pages of the site, this pattern is implemented. It is useful in reducing code duplication and improves test case maintenance.
+**Page object pattern**: in order to interact with the different pages of the site, this pattern is implemented. It is useful in reducing code duplication and improves test case maintenance.
 
 **Utils custom modules**: aiming at keeping the steps definition as simple as possible, all external libraries are used in modules within the `steps/utils/` folder.
 
