@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 
-This project is based on `Python3`, `pip` and `venv`.
+This project is based on `Python3`, `pip` and `venv`. [Google Chrome](https://www.google.com/chrome/) is also needed to be installed.
 
 ### Installing Python3 on your Mac. 
 
