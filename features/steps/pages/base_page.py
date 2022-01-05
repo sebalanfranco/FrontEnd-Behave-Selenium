@@ -104,7 +104,6 @@ class BasePage:
         timeout (int): wait timeout (default = 5)
         """
         wait = WebDriverWait(self.browser, timeout)
-        
         wait.until(EC.visibility_of_element_located(locator))
 
     def wait_for_alert(self, timeout = 5):
@@ -115,7 +114,6 @@ class BasePage:
         timeout (int): wait timeout (default = 5)
         """
         wait = WebDriverWait(self.browser, timeout)
-        
         wait.until(EC.alert_is_present())
 
     def wait_for_element_to_disappear(self, element, timeout = 5):
@@ -127,5 +125,4 @@ class BasePage:
         timeout (int): wait timeout (default = 5)
         """
         wait = WebDriverWait(self.browser, timeout, ignored_exceptions = (ElementNotVisibleException))
-
         wait.until_not(lambda e: element.is_displayed())

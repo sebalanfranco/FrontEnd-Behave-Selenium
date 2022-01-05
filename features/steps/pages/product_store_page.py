@@ -1,4 +1,5 @@
 from steps.pages.base_page import BasePage, By
+from selenium.common.exceptions import StaleElementReferenceException
 
 class ProductStorePage(BasePage):
     # Locators
@@ -10,8 +11,14 @@ class ProductStorePage(BasePage):
     # This can be improved
     add_to_cart = (By.XPATH, '//a[text()="Add to cart"]')
     
+    # TODO: improve and move method to base page
     def open_product_by_position(self, position: int):
-        self._get_product_by_position(position).click()
+        for i in range(10):
+            try:
+                self._get_product_by_position(position).click()
+                break
+            except StaleElementReferenceException:
+                continue
 
     def get_product_information_by_position(self, position: int):
         product_card = self._get_product_by_position(position)
