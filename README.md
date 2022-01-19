@@ -2,7 +2,6 @@
 
 ## What is the purpose of this repo?
 
-The main goal is to complete the coding exercise sent by [BoostUp](https://www.boostup.ai/), implementing an automation testing framework to test the [Demoblaze](https://www.demoblaze.com/) site.
 The project is based on [Python](https://www.python.org/), [Behave](https://behave.readthedocs.io/en/latest/) and [Selenium](https://selenium-python.readthedocs.io/).
 
 ## Some practices used
